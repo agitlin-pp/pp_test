@@ -37,7 +37,7 @@ end
 # Build-specific configuration
 configure :build do
   # Set relative links cuz deploying to github pages
-  set :relative_links, true
+  activate :relative_assets
   # Minify CSS on build
   # activate :minify_css
 
