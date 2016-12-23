@@ -1,0 +1,49 @@
+// Button Styles
+@mixin primary-btn-a {
+  height: 3rem;
+  display: inline-block;
+  position: relative;
+  box-sizing: border-box;
+  padding: 1rem;
+  min-width: 15rem;
+  border: 2px solid $lapel;
+  color: $lapel;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 2.0px;
+  text-transform: uppercase;
+  line-height: 1rem;
+  .icon-right {
+    right: 1rem;
+    transition: all 0.1s ease-in-out;
+  }
+  &:hover {
+    cursor: pointer;
+    background-color: $lapel;
+    color: $white;
+    .icon-right {
+      right: 0.75rem;
+    }
+  }
+}
+
+@mixin secondary-btn-a {
+  height: 3rem;
+  display: inline-block;
+  position: relative;
+  box-sizing: border-box;
+  padding: 1rem;
+  min-width: 15rem;
+  border: 1px solid $something;
+  color: $lapel;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 2.0px;
+  text-transform: uppercase;
+  line-height: 1rem;
+  &:hover {
+    cursor: pointer;
+    border: 1px solid $lapel;
+    transition: all 0.1s ease-in-out;
+  }
+}

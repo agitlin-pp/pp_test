@@ -1,30 +1,155 @@
 @charset "utf-8";
 @import "normalize";
 
+*,
+*:after,
+*:before {
+    box-sizing: border-box;
+}
+
+@import "buttons";
+
+//Colors
+
+$lapel: #333333;
+$gatsby: #005AC8;
+$dove: #F9F9F9;
+
+// Grays from lightest to darkest:
+$white: #ffffff;
+$gallery: #eeeeee;
+$something: #dddddd;
+$wolf: #dddddd;
+$dusty-gray: #999999;
+$charcoal: #777777;
+
+// End Colors
+
+// Styling Material Icons
+.material-icons {
+  vertical-align: middle;
+  position: relative;
+  top: -1px;
+}
+.icon-right {
+  position: absolute;
+  right: 1rem;
+  top: auto;
+  bottom: auto;
+}
+.icon-left {
+  margin-right: 0.75rem;
+}
+.material-icons.md-18 { font-size: 18px; }
+.material-icons.md-24 { font-size: 24px; }
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 48px; }
+
+// End material icon styling
 li {
     list-style: none;
 }
 
+html {
+  font-size: 16px;
+}
 body {
   background: #ECC561;
   font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 1em;
 }
 
+//Header
+
 header {
   text-align: center;
   background: white;
-  height: 3em;
-  border-bottom: gray;
+  height: 3rem;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  position: relative;
+  z-index: 1;
 }
 .flow__step {
   text-transform: uppercase;
-  line-height: 3em;
+  line-height: 3rem;
 }
 
+
+//Toolbar
 .toolbar {
-  width: 12em;
+  width: 19rem;
   height: 100%;
   position: absolute;
-  background: white;
+  z-index: 0;
+  background: $white;
+}
+
+//Primary Actions
+.primary-tool-list__item {
+  @include primary-btn-a;
+  margin-top: 0.75rem;
+
+  .material-icons {
+    line-height: 1.0rem;
+  }
+}
+
+//Secondary Actions
+.secondary-tool-list {
+  margin-top: 4rem;
+}
+.secondary-tool-list__item {
+  @include secondary-btn-a;
+  margin-top: 0.75rem;
+}
+
+//add card dropdown
+.dd-wrapper {
+  position: relative;
+}
+
+.add-card-dropdown {
+    position: absolute;
+    top: 3rem;
+    left: -1px;
+    margin-top: -1px;
+    padding-left: 0;
+    transition: all 0.1s ease-out;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.dd-wrapper.active {
+    border-top: 1px solid $lapel;
+    border-left: 1px solid $lapel;
+    border-right: 1px solid $lapel;
+    border-bottom: 1px solid transparent;
+    .icon-right {
+      transform: rotate(45deg);
+      transition: transform 0.1s ease-in-out;
+    }
+    .add-card-dropdown {
+      opacity: 1;
+      pointer-events: auto;
+    }
+}
+.add-card-dropdown__item {
+  @include secondary-btn-a;
+  border: 1px solid $lapel;
+  border-left: 1px solid $lapel;
+  border-right: 1px solid $lapel;
+  border-top: 1px solid transparent;
+  border-bottom: 1px solid transparent;
+  margin-top: -1px;
+  &:last-child {
+    border-bottom: 1px solid $lapel;
+    &:hover {
+      border-bottom: 1px solid $lapel;
+    }
+  }
+  &:hover {
+    background-color: $gallery;
+    border-top: 1px solid transparent;
+    border-bottom: 1px solid transparent;
+  }
 }
