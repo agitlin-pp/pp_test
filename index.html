@@ -9,6 +9,9 @@
     <title>Welcome to Middleman</title>
 
     <link href='//fonts.googleapis.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
     <link href="stylesheets/site.css" rel="stylesheet" />
     <script src="javascripts/all.js"></script>
@@ -22,15 +25,34 @@
 </header>
 
 <section class="toolbar">
-  <ul class="main-tool-list">
-    <li class="main-tool-list__item">Text</li>
-    <li class="main-tool-list__item">Backdrop</li>
-  </ul>
-  <div class="options-dropdown">
+  <div class="primary-tool-list">
     <ul>
-      <li class="options-dropdown__item">Motif & logo</li>
-      <li class="options-dropdown__item--add">Add Text Card</li>
-      <li class="options-dropdown__item--add">Add Photo Card</li>
+      <li class="primary-tool-list__item">
+        <i class="material-icons md-18 icon-left">title</i>
+        Text
+        <i class="material-icons md-18 icon-right">keyboard_arrow_right</i>
+      </li>
+      <li class="primary-tool-list__item backdrop-icon">
+        <i class="material-icons md-18 icon-left">format_paint</i>
+        Backdrop
+        <i class="material-icons md-18 icon-right">keyboard_arrow_right</i>
+      </li>
+    </ul>
+  </div>
+
+  <div class="secondary-tool-list">
+    <ul>
+      <li class="secondary-tool-list__item">
+        Add Motif/Logo
+        <i class="material-icons md-18 icon-right">add</i>
+      </li>
+      <li class="secondary-tool-list__item dd-wrapper">
+        Add Card
+        <i class="material-icons md-18 icon-right">add</i>
+        <ul class="add-card-dropdown">
+          <li class="add-card-dropdown__item">Add Text Card</li>
+          <li class="add-card-dropdown__item">Add Photo Card</li>
+        </ul>
     </ul>
   </div>
 
