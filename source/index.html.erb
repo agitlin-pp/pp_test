@@ -9,43 +9,72 @@ title: Welcome to Middleman
 </header>
 
 <section class="toolbar">
-  <div class="primary-tool-list">
-    <ul>
-      <li class="primary-tool-list__item">
-        <i class="material-icons md-18 icon-left">title</i>
-        Text
-        <i class="material-icons md-18 icon-right">keyboard_arrow_right</i>
-      </li>
-      <li class="primary-tool-list__item backdrop-icon">
-        <i class="material-icons md-18 icon-left">format_paint</i>
-        Backdrop
-        <i class="material-icons md-18 icon-right">keyboard_arrow_right</i>
-      </li>
-    </ul>
-  </div>
+  <div class="toolbar-content side-1">
+    <div class="primary-tool-list">
+      <ul>
+        <li id="text-tool-open" class="primary-tool-list__item">
+          <i class="material-icons md-18 icon-left">title</i>
+          Text
+          <i class="material-icons md-18 icon-right">keyboard_arrow_right</i>
+        </li>
+        <li class="primary-tool-list__item backdrop-icon">
+          <i class="material-icons md-18 icon-left">format_paint</i>
+          Backdrop
+          <i class="material-icons md-18 icon-right">keyboard_arrow_right</i>
+        </li>
+      </ul>
+    </div>
 
-  <div class="secondary-tool-list">
-    <ul>
-      <li class="secondary-tool-list__item">
-        Add Motif/Logo
-        <i class="material-icons md-18 icon-right">add</i>
-      </li>
-      <li class="secondary-tool-list__item dd-wrapper">
-        Add Card
-        <i class="material-icons md-18 icon-right">add</i>
-        <ul class="add-card-dropdown">
-          <li class="add-card-dropdown__item">Add Text Card</li>
-          <li class="add-card-dropdown__item">Add Photo Card</li>
-        </ul>
-    </ul>
-  </div>
+    <div class="secondary-tool-list">
+      <ul>
+        <li class="secondary-tool-list__item">
+          Add Motif/Logo
+          <i class="material-icons md-18 icon-right">add</i>
+        </li>
+        <li class="secondary-tool-list__item dd-wrapper">
+          Add Card
+          <i class="material-icons md-18 icon-right">add</i>
+          <ul class="add-card-dropdown">
+            <li class="add-card-dropdown__item">Add Text Card</li>
+            <li class="add-card-dropdown__item">Add Photo Card</li>
+          </ul>
+        </li>
+      </ul>
+    </div> <!-- End Secondary Tools -->
+  </div> <!-- End Side-1 content -->
+
+  <div class="toolbar-content toolset--text">
+    <div class="toolset-title">
+      <span>Text</span>
+      <i id="text-toolset-close" class="material-icons icon-right">close</i>
+    </div>
+    <p>Lots of fun text tools here</p>
+  </div> <!-- End Text Toolset -->
+
+</section> <!-- End Toolbar -->
+
+
 
   <section class="viewport">
-    <span class="viewport-arrow-left">
-    </span>
-    <div class="image-area">
 
+    <div id="go-to-card-front" class="viewport-arrow-left">
+      <i class="material-icons">arrow_back</i>
+      <label class="left-arrow-label">Front of Card</label>
     </div>
-    <span class="viewport-arrow-right">
-    </span>
+
+    <div class="image-area">
+      <img class="front-of-card" src="images/card-front.png"/>
+      <img class="back-of-card" src="images/card-back.png"/>
+    </div>
+
+    <div id="go-to-card-back" class="viewport-arrow-right">
+      <label class="right-arrow-label">Back of Card</label>
+      <i class="material-icons">arrow_forward</i>
+    </div>
+
+    <div id="finish-design" class="viewport-arrow-right">
+      <label class="right-arrow-label">Finish Design</label>
+      <i class="material-icons">arrow_forward</i>
+    </div>
+
   </section>
