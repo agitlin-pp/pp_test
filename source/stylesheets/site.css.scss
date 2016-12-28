@@ -6,8 +6,12 @@
 *:before {
     box-sizing: border-box;
 }
+ul {
+  margin: 0;
+}
 
 @import "buttons";
+@import "animate";
 
 //Colors
 
@@ -58,6 +62,14 @@ body {
   font-size: 1em;
 }
 
+//Prevent onload animations
+.preload * {
+-webkit-transition: none !important;
+-moz-transition: none !important;
+-ms-transition: none !important;
+-o-transition: none !important;
+transition: none !important;
+}
 //Header
 
 header {
@@ -85,9 +97,13 @@ header {
 .toolbar-content {
   position: absolute;
   height: -webkit-calc(100% - 1rem);
-  width: 19rem;
+
 }
 
+//Side 1
+.side-1 {
+  margin-top: 4rem;
+}
 //Text Toolset
 .toolset--text {
   width: 19rem;
@@ -115,7 +131,7 @@ header {
 //Primary Actions
 .primary-tool-list__item {
   @include primary-btn-a;
-  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
 
   .material-icons {
     line-height: 1.0rem;
@@ -212,7 +228,8 @@ header {
   left: 0;
   right: 0;
   margin: 0 auto;
-  transition: all 1s ease-in-out;
+  opacity: 1.0;
+  // transition: all 1s ease;
 }
 
 .back-of-card {
@@ -223,7 +240,20 @@ header {
   left: 0;
   right: 0;
   margin: 0 auto;
-  transition: all 1s ease-in-out;
+  opacity: 0;
+  // transition: all 1s ease;
+}
+
+.hidden--fromRight {
+//   opacity: 0;
+  // left: 100%;
+//   // transition: opacity 1s ease, left 1s ease;
+}
+//
+.hidden--fromLeft {
+//   opacity: 0;
+  // left: -150%;
+//   // transition: opacity 1s ease, left 1s ease;
 }
 // To both next and right arrows
 *[class|="viewport-arrow"] {
@@ -285,14 +315,12 @@ header {
   @include hidden--opacity;
 }
 
-.hidden--fromRight {
-  opacity: 0;
-  left: 100%;
-  transition: all 1s ease-in-out;
-}
 
-.hidden--fromLeft {
-  opacity: 0;
-  left: -150%;
-  transition: all 1s ease-in-out;
-}
+//
+// .visible--fromRight, .visible--fromLeft {
+//   left: 0;
+//   right: 0;
+//   margin: 0 auto;
+//   opacity: 1.0;
+//   transition: all 1s ease-in-out;
+// }

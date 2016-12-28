@@ -1,6 +1,8 @@
 // This is where it all goes :)
-
 $(document).ready(function(){
+  setTimeout(function(){
+    $("body").removeClass("preload");
+  },500);
 
   $('#text-tool-open').on('click', function(e) {
     console.log("text-tool-open");
@@ -15,15 +17,15 @@ $(document).ready(function(){
   });
   // Add hidden css class to objects hidden on initial view
   $('#finish-design, #go-to-card-front').addClass('hidden--opacity');
-  //Card sides to hide and show
-  $('.back-of-card').addClass("hidden--fromRight");
+
 
   // When click on Go to Card Back
   $('#go-to-card-back').on('click', function(e) {
     console.log("go to card back");
     //The card sides
-    $('.front-of-card').addClass("hidden--fromLeft");
-    $('.back-of-card').removeClass("hidden--fromRight");
+    $('.back-of-card').removeClass("hidden--fromRight fadeOutRightBig").addClass("animated fadeInRightBig");
+    $('.front-of-card').addClass("hidden--fromLeft animated fadeOutLeftBig").removeClass("hidden--fromRight fadeInLeftBig");
+
     //The arrows
     $('#go-to-card-back').addClass('hidden--opacity');
     $('#finish-design, #go-to-card-front').removeClass('hidden--opacity');
@@ -34,8 +36,8 @@ $(document).ready(function(){
   $('#go-to-card-front').on('click', function(e) {
     console.log("go to card front");
     //The card sides
-    $('.back-of-card').addClass("hidden--fromRight");
-    $('.front-of-card').removeClass("hidden--fromLeft");
+    $('.back-of-card').addClass("hidden--fromRight animated fadeOutRightBig").removeClass("fadeInRightBig");
+    $('.front-of-card').removeClass("hidden--fromLeft fadeOutLeftBig").addClass("animated fadeInLeftBig");
     //The arrows
     $('#go-to-card-back').removeClass('hidden--opacity');
     $('#finish-design, #go-to-card-front').addClass('hidden--opacity');

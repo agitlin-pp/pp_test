@@ -11,13 +11,18 @@
     <link href='//fonts.googleapis.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
+    <%= stylesheet_link_tag :site %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
-    <%= stylesheet_link_tag :site %>
-    <%= javascript_include_tag :all %>
+
   </head>
 
-  <body class="<%= page_classes %>">
+  <body class="<%= page_classes %> preload">
     <%= yield %>
   </body>
+
+  <%= javascript_include_tag :all %>
+
 </html>
