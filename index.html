@@ -11,13 +11,15 @@
     <link href='//fonts.googleapis.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
+    <link href="stylesheets/site.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
-    <link href="stylesheets/site.css" rel="stylesheet" />
-    <script src="javascripts/all.js"></script>
+
   </head>
 
-  <body class="index">
+  <body class="index preload">
     <header>
   <div class='flow'>
     <span class='flow__step'>Customize</span>
@@ -80,7 +82,7 @@
 
     <div class="image-area">
       <img class="front-of-card" src="images/card-front.png"/>
-      <img class="back-of-card" src="images/card-back.png"/>
+      <img class="back-of-card hidden--fromRight" src="images/card-back.png"/>
     </div>
 
     <div id="go-to-card-back" class="viewport-arrow-right">
@@ -96,4 +98,7 @@
   </section>
 
   </body>
+
+  <script src="javascripts/all.js"></script>
+
 </html>
