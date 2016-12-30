@@ -11,7 +11,7 @@ ul {
 }
 
 @import "buttons";
-@import "animate";
+
 
 //Colors
 
@@ -60,15 +60,17 @@ html {
 body {
   font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 1em;
+  background-color: $gallery;
 }
 
 //Prevent onload animations
-.preload * {
+.preload *, .preload .animated {
 -webkit-transition: none !important;
 -moz-transition: none !important;
 -ms-transition: none !important;
 -o-transition: none !important;
 transition: none !important;
+animation-duration: 0s;
 }
 //Header
 
@@ -93,6 +95,7 @@ header {
   position: absolute;
   z-index: 0;
   background: $white;
+  border-right: 1px solid $something;
 }
 .toolbar-content {
   position: absolute;
@@ -110,9 +113,10 @@ header {
   top: 1rem;
   left: -1rem;
   background-color: $white;
-  box-shadow: 0 0 2px rgba(0,0,0,0.15);
+  box-shadow: 1px 0 4px rgba(0,0,0,0.15);
   opacity: 0;
   z-index: -1;
+  padding-top: 1.5rem;
   transition: all 0.2s ease-in-out;
 }
 .toolset--text.open {
@@ -123,9 +127,24 @@ header {
 }
 
 #text-toolset-close {
+  transition: color 0.1s ease-in;
   &:hover {
     cursor: pointer;
+    color: $wolf;
   }
+}
+
+.toolset__title {
+  font-size: 1rem;
+  text-transform: uppercase;
+  color: $lapel;
+  letter-spacing: 2px;
+  text-align: center;
+  font-weight: 800;
+}
+.placeholder-text-toolset {
+  width: 100%;
+  margin-top: 1.5rem;
 }
 
 //Primary Actions
@@ -244,16 +263,20 @@ header {
   // transition: all 1s ease;
 }
 
-.hidden--fromRight {
-//   opacity: 0;
-  // left: 100%;
-//   // transition: opacity 1s ease, left 1s ease;
-}
-//
-.hidden--fromLeft {
-//   opacity: 0;
-  // left: -150%;
-//   // transition: opacity 1s ease, left 1s ease;
+.card-type-selection {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 12rem;
+  margin: 0 auto;
+  text-align: center;
+
+  img {
+    width: 50%;
+    height: 50%;
+    left: -9.5rem;
+    position: relative;
+  }
 }
 // To both next and right arrows
 *[class|="viewport-arrow"] {
@@ -305,22 +328,23 @@ header {
   }
 }
 
+#back-to-design {
+  left: -16rem;
+  z-index: 5;
+}
 
-@mixin hidden--opacity {
-  display: none;
+.hidden {
+  clip-path: polygon(0px 0px,0px 0px,0px 0px,0px 0px);
+}
+.hidden--opacity {
+  @extend .hidden;
   opacity: 0;
   transition: opacity 0.2s ease-in-out;
 }
-.hidden--opacity {
-  @include hidden--opacity;
+
+.display {
+  opacity: 1.0;
 }
 
 
-//
-// .visible--fromRight, .visible--fromLeft {
-//   left: 0;
-//   right: 0;
-//   margin: 0 auto;
-//   opacity: 1.0;
-//   transition: all 1s ease-in-out;
-// }
+@import "animate";
