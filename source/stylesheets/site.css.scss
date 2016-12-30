@@ -327,10 +327,11 @@ header {
     }
   }
 }
-
 #back-to-design {
-  left: -16rem;
-  z-index: 5;
+  left: -8rem;
+  &.fadeInRight {
+    left: -17rem;
+  }
 }
 
 .hidden {
