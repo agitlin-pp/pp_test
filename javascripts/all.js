@@ -28,7 +28,7 @@ $(document).ready(function(){
     $('#go-to-card-back').addClass('animated fadeOut').one('animationsend', function(e) {
       $(this).addClass("hidden");
     });
-    $('#finish-design, #go-to-card-front').removeClass("hidden fadeOut").addClass('animated fadeIn');
+    $('#finish-design, #go-to-card-front').removeClass("hidden fadeOut fadeInLeft").addClass('animated fadeIn');
     e.preventDefault();
   });
 
@@ -63,16 +63,18 @@ $(document).ready(function(){
   //When click on Back to Design
   $('#back-to-design').on('click', function(e) {
     console.log("back to design");
+    $(this).removeClass("fadeInRight").addClass("fadeOutRight").one('animationend', function(e) {
+      $(this).addClass('hidden');
+      console.log("add hidden class to back-to-design button");
+    });
+
     $('.back-of-card').removeClass("fadeOutLeftBig").addClass("fadeInLeftBig"); //move final side off to left
     $('.toolbar').removeClass("fadeOutLeft").addClass("fadeInLeft"); //move the toolbar off to the left
     $('#finish-design').removeClass("fadeOut").addClass("fadeIn"); //fadeout the arrows
     $('#go-to-card-front').removeClass("fadeOutLeft").addClass("fadeInLeft");
-    $('#back-to-design').removeClass("fadeInRight").addClass("fadeOutRight").one('animationsend', function(e) {
-      $(this).addClass('hidden');
-    });
     $('#card-type-selection').addClass("hidden");
     $('.placeholder-card-type-selection').removeClass("fadeInRight").addClass("fadeOutRight"); //Fade in the selector from the right
-  })
+  });
 
 
 

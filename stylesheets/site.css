@@ -670,7 +670,8 @@ header {
     left: -0.25rem; }
 
 #back-to-design {
-  left: -8rem; }
+  left: -8rem;
+  transition: left 1s linear; }
   #back-to-design.fadeInRight {
     left: -17rem; }
 
