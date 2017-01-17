@@ -7,12 +7,14 @@ $(document).ready(function(){
   $('#text-tool-open').on('click', function(e) {
     console.log("text-tool-open");
     $('.toolset--text').addClass('open');
+    $('.side-1').addClass('obscured');
     e.preventDefault();
   });
 
   $('#text-toolset-close').on('click', function(e) {
     console.log("text-tool-close");
     $('.toolset--text').removeClass('open');
+    $('.side-1').removeClass('obscured');
     e.preventDefault();
   });
 

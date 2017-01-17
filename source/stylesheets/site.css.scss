@@ -106,21 +106,41 @@ header {
 //Side 1
 .side-1 {
   margin-top: 4rem;
+  //transition: all 0.2s ease-in-out;
+  left: 0;
+}
+.side-1.obscured {
+  left: -2.5rem;
+  transition: all 0.3s ease-in-out;
+}
+.side-1::after {
+  content: '';
+  background-color: rgba(95,95,95,0.0);
+  transition: all 0.3s ease-in-out;
+}
+.side-1.obscured::after {
+  content: '';
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(95,95,95,0.8);
+  top: -4rem;
+  transition: all 0.3s ease-in-out;
 }
 //Text Toolset
 .toolset--text {
   width: 19rem;
-  top: 1rem;
-  left: -1rem;
+  top: 0;
+  left: 8rem;
   background-color: $white;
   box-shadow: 1px 0 4px rgba(0,0,0,0.15);
   opacity: 0;
   z-index: -1;
   padding-top: 1.5rem;
-  transition: all 0.2s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 .toolset--text.open {
-  left: 1rem;
+  left: 1.5rem;
   opacity: 1;
   z-index: 1;
   transition: all 0.4s ease-in-out;
