@@ -13,7 +13,7 @@ ul {
 @import "buttons";
 
 
-//Colors
+////////////// Colors
 
 $lapel: #333333;
 $gatsby: #005AC8;
@@ -27,7 +27,7 @@ $wolf: #dddddd;
 $dusty-gray: #999999;
 $charcoal: #777777;
 
-// End Colors
+/////////////// End Colors
 
 // Styling Material Icons
 .material-icons {
@@ -80,7 +80,7 @@ header {
   height: 3rem;
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
   position: relative;
-  z-index: 1;
+  z-index: 4;
 }
 .flow__step {
   text-transform: uppercase;
@@ -99,59 +99,52 @@ header {
 }
 .toolbar-content {
   position: absolute;
-  height: -webkit-calc(100% - 1rem);
-
 }
 
 //Side 1
 .side-1 {
   margin-top: 4rem;
+
   //transition: all 0.2s ease-in-out;
-  left: 0;
 }
-.side-1.obscured {
-  left: -2.5rem;
-  transition: all 0.3s ease-in-out;
+.fade-left {
+  animation-name: customFadeOutLeft;
+  animation-duration: 600ms;
+  animation-fill-mode: both;
+  animation-direction: alternate;
 }
-.side-1::after {
-  content: '';
-  background-color: rgba(95,95,95,0.0);
-  transition: all 0.3s ease-in-out;
+.fade-in-right {
+  animation-name: customFadeInRight;
+  animation-duration: 600ms;
+  animation-fill-mode: both;
 }
-.side-1.obscured::after {
-  content: '';
-  position: absolute;
-  height: 100vh;
-  width: 100%;
-  background-color: rgba(95,95,95,0.8);
-  top: -4rem;
-  transition: all 0.3s ease-in-out;
-}
-//Text Toolset
-.toolset--text {
-  width: 19rem;
-  top: 0;
-  left: 8rem;
-  background-color: $white;
-  box-shadow: 1px 0 4px rgba(0,0,0,0.15);
-  opacity: 0;
-  z-index: -1;
-  padding-top: 1.5rem;
-  transition: all 0.3s ease-in-out;
-}
-.toolset--text.open {
-  left: 1.5rem;
-  opacity: 1;
-  z-index: 1;
-  transition: all 0.4s ease-in-out;
+@keyframes customFadeOutLeft {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+    transform: translate3d(-50%, 0, 0);
+  }
 }
 
-#text-toolset-close {
-  transition: color 0.1s ease-in;
-  &:hover {
-    cursor: pointer;
-    color: $wolf;
+@keyframes customFadeOutRight {
+  from {
+    opacity: 1;
   }
+
+  to {
+    opacity: 0;
+    transform: translate3d(50%, 0, 0);
+  }
+}
+
+//Text Toolset
+.toolset--text {
+  opacity: 0;
+  padding-top: 1rem;
+  overflow: hidden;
 }
 
 .toolset__title {
@@ -164,8 +157,56 @@ header {
 }
 .placeholder-text-toolset {
   width: 100%;
-  margin-top: 1.5rem;
+  margin-top: 1rem;
 }
+
+.open {
+  left: 0rem;
+  opacity: 1;
+  animation-name: customFadeInLeft;
+  animation-duration: 600ms;
+  animation-fill-mode: both;
+}
+.fade-out-right {
+  animation-name: customFadeOutRight;
+  animation-duration: 600ms;
+  animation-fill-mode: both;
+}
+
+@-webkit-keyframes customFadeInLeft {
+  from {
+    opacity: 0;
+    transform: translate3d(50%, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+@-webkit-keyframes customFadeInRight {
+  from {
+    opacity: 0;
+    transform: translate3d(-50%, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+#text-toolset-close {
+  transition: color 0.1s ease-in;
+  &:hover {
+    cursor: pointer;
+    color: $wolf;
+  }
+}
+
 
 //Primary Actions
 .primary-tool-list__item {
@@ -244,7 +285,7 @@ header {
 //Viewport
 .viewport {
   position: absolute;
-  z-index: -2;
+  z-index: 1;
   left: 19rem;
   background-color: $gallery;
   width: -webkit-calc(100% - 19rem);
