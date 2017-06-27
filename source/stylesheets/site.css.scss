@@ -145,6 +145,7 @@ header {
   opacity: 0;
   padding-top: 1rem;
   overflow: hidden;
+  z-index: -1;
 }
 
 .toolset__title {
@@ -297,17 +298,27 @@ header {
 
 // Card Front
 .image-area {
-  height: 80vh;
-  max-width: 75vw;
+  // height: calc(100vh/2 + 40px);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  // background: url(/images/bondi.jpg) center no-repeat;
+  // background: url(/images/terrazo.jpg) center no-repeat;
+  background: url(/images/emery.jpg) center no-repeat;
+  background-size: cover;
+
 }
 .front-of-card {
-  height: 80vh;
-  max-width: 100%;
-  box-shadow: 8px 8px 0 rgba(0,0,0,0.25);
+  height: auto;
+  max-height: 90%;
+  width: 440px;
+  //box-shadow: 8px 8px 0 rgba(0,0,0,0.25);
   position: absolute;
-  left: 0;
+  top: 0;
   right: 0;
-  margin: 0 auto;
+  bottom: 0;
+  left: 0;
+  margin: auto;
   opacity: 1.0;
   // transition: all 1s ease;
 }
