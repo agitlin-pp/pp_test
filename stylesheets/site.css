@@ -423,7 +423,7 @@ header {
   height: 3rem;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
   position: relative;
-  z-index: 1; }
+  z-index: 4; }
 
 .flow__step {
   text-transform: uppercase;
@@ -438,34 +438,39 @@ header {
   border-right: 1px solid #dddddd; }
 
 .toolbar-content {
-  position: absolute;
-  height: -webkit-calc(100% - 1rem); }
+  position: absolute; }
 
 .side-1 {
   margin-top: 4rem; }
 
+.fade-left {
+  animation-name: customFadeOutLeft;
+  animation-duration: 600ms;
+  animation-fill-mode: both;
+  animation-direction: alternate; }
+
+.fade-in-right {
+  animation-name: customFadeInRight;
+  animation-duration: 600ms;
+  animation-fill-mode: both; }
+
+@keyframes customFadeOutLeft {
+  from {
+    opacity: 1; }
+  to {
+    opacity: 0;
+    transform: translate3d(-50%, 0, 0); } }
+@keyframes customFadeOutRight {
+  from {
+    opacity: 1; }
+  to {
+    opacity: 0;
+    transform: translate3d(50%, 0, 0); } }
 .toolset--text {
-  width: 19rem;
-  top: 1rem;
-  left: -1rem;
-  background-color: #ffffff;
-  box-shadow: 1px 0 4px rgba(0, 0, 0, 0.15);
   opacity: 0;
-  z-index: -1;
-  padding-top: 1.5rem;
-  transition: all 0.2s ease-in-out; }
-
-.toolset--text.open {
-  left: 1rem;
-  opacity: 1;
-  z-index: 1;
-  transition: all 0.4s ease-in-out; }
-
-#text-toolset-close {
-  transition: color 0.1s ease-in; }
-  #text-toolset-close:hover {
-    cursor: pointer;
-    color: #dddddd; }
+  padding-top: 1rem;
+  overflow: hidden;
+  z-index: -1; }
 
 .toolset__title {
   font-size: 1rem;
@@ -477,7 +482,41 @@ header {
 
 .placeholder-text-toolset {
   width: 100%;
-  margin-top: 1.5rem; }
+  margin-top: 1rem; }
+
+.open {
+  left: 0rem;
+  opacity: 1;
+  animation-name: customFadeInLeft;
+  animation-duration: 600ms;
+  animation-fill-mode: both; }
+
+.fade-out-right {
+  animation-name: customFadeOutRight;
+  animation-duration: 600ms;
+  animation-fill-mode: both; }
+
+@-webkit-keyframes customFadeInLeft {
+  from {
+    opacity: 0;
+    transform: translate3d(50%, 0, 0); }
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none; } }
+@-webkit-keyframes customFadeInRight {
+  from {
+    opacity: 0;
+    transform: translate3d(-50%, 0, 0); }
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none; } }
+#text-toolset-close {
+  transition: color 0.1s ease-in; }
+  #text-toolset-close:hover {
+    cursor: pointer;
+    color: #dddddd; }
 
 .primary-tool-list__item {
   height: 3rem;
@@ -591,7 +630,7 @@ header {
 
 .viewport {
   position: absolute;
-  z-index: -2;
+  z-index: 1;
   left: 19rem;
   background-color: #eeeeee;
   width: -webkit-calc(100% - 19rem);
@@ -601,17 +640,22 @@ header {
   align-items: center; }
 
 .image-area {
-  height: 80vh;
-  max-width: 75vw; }
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: url(../images/emery.jpg) center no-repeat;
+  background-size: cover; }
 
 .front-of-card {
-  height: 80vh;
-  max-width: 100%;
-  box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.25);
+  height: auto;
+  max-height: 90%;
+  width: 440px;
   position: absolute;
-  left: 0;
+  top: 0;
   right: 0;
-  margin: 0 auto;
+  bottom: 0;
+  left: 0;
+  margin: auto;
   opacity: 1.0; }
 
 .back-of-card {

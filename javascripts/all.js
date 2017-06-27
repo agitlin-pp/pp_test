@@ -6,13 +6,15 @@ $(document).ready(function(){
 
   $('#text-tool-open').on('click', function(e) {
     console.log("text-tool-open");
-    $('.toolset--text').addClass('open');
+    $('.toolset--text').removeClass('fade-out-right').addClass('open');
+    $('.side-1').removeClass('fade-in-right').addClass('fade-left');
     e.preventDefault();
   });
 
   $('#text-toolset-close').on('click', function(e) {
     console.log("text-tool-close");
-    $('.toolset--text').removeClass('open');
+    $('.toolset--text').removeClass('open').addClass('fade-out-right');
+    $('.side-1').removeClass('fade-left').addClass('fade-in-right');
     e.preventDefault();
   });
 
